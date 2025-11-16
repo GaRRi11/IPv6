@@ -73,13 +73,17 @@ fd00:abcd::5
 fd34:55aa:1::10
 
 2.4 ULA vs LLA
-Scenario	Uses LLA?	Uses ULA?
-Talking to router	✔ Yes	✖ No
-Finding neighbors	✔ Yes	✖ No
-Local-only traffic	✔ Yes	✖ No
-Communication across LAN segments	✖ No	✔ Yes
-Internal servers	✖ No	✔ Yes
-Internet access	❌ No	✔ (only inside LAN; GUA used for internet)
+
+| Scenario                          | Uses LLA? | Uses ULA?                                  |
+| --------------------------------- | --------- | ------------------------------------------ |
+| Talking to router                 | ✔ Yes     | ✖ No                                       |
+| Finding neighbors                 | ✔ Yes     | ✖ No                                       |
+| Local-only traffic                | ✔ Yes     | ✖ No                                       |
+| Communication across LAN segments | ✖ No      | ✔ Yes                                      |
+| Internal servers                  | ✖ No      | ✔ Yes                                      |
+| Internet access                   | ❌ No      | ✔ (only inside LAN; GUA used for internet) |
+
+
 3. Duplicate Address Detection (DAD)
 
 Before the device uses an IPv6 address, it asks the LAN:
@@ -117,10 +121,13 @@ Changes periodically
 Used for GUA to protect privacy
 
 Which method is used?
-Address Type	IID Type Used	Why
-Link-Local (fe80::)	Often EUI-64 or Stable IID	Needs to be stable for LAN functions
-GUA (2000::)	Randomized IID	Privacy
-ULA (fdxx::)	Usually stable IID	Internal networks
+
+| Address Type        | IID Type Used              | Why                                  |
+| ------------------- | -------------------------- | ------------------------------------ |
+| Link-Local (fe80::) | Often EUI-64 or Stable IID | Needs to be stable for LAN functions |
+| GUA (2000::)        | Randomized IID             | Privacy                              |
+| ULA (fdxx::)        | Usually stable IID         | Internal networks                    |
+
 5. Prefix Length
 
 99% of IPv6 uses /64
@@ -219,11 +226,13 @@ Device now has GUA or ULA
 
 Optional (unlike IPv4).
 
-Feature	SLAAC	Stateful DHCPv6	Stateless DHCPv6
-IPv6 address	✔ Yes	✔ Yes	✔ Yes (via SLAAC)
-DNS	✔ Maybe	✔ Yes	✔ Yes
-Gateway	✔ Yes (RA)	✔ Yes (RA)	✔ Yes (RA)
-Full admin control	❌ No	✔ Yes	❌ No
+| Feature            | SLAAC      | Stateful DHCPv6 | Stateless DHCPv6  |
+| ------------------ | ---------- | --------------- | ----------------- |
+| IPv6 address       | ✔ Yes      | ✔ Yes           | ✔ Yes (via SLAAC) |
+| DNS                | ✔ Maybe    | ✔ Yes           | ✔ Yes             |
+| Gateway            | ✔ Yes (RA) | ✔ Yes (RA)      | ✔ Yes (RA)        |
+| Full admin control | ❌ No       | ✔ Yes           | ❌ No              |
+
 
 DHCPv6 cannot give default gateway.
 
