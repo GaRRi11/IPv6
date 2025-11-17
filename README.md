@@ -60,6 +60,17 @@ Used for Local communication
 
 Format: fe80:xxxx:xxxx:xxxx:…
 
+### Unique Local Address (ULA)
+
+ULA is not automatic and only used when:
+
+A network intentionally assigns ULAs
+
+Multi-segment LAN communication is required
+
+Internal-only servers or services must be reachable
+
+IPv6 DNS is desired
 
 ## Default Gateway in IPv6
 
