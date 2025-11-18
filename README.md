@@ -50,7 +50,7 @@ After connecting the network router will give prefix via RA which ISP uses then 
 
 ### Link-Local Address (LLA)
 
-Automatically created by every IPv6 device.
+Created the moment device connects to network. DAD check it and assign to itself.
 
 Always starts with prefix: fe80::/10
 
@@ -91,7 +91,7 @@ Common multicast groups:
 
 ff02::1 — all nodes
 
-ff02::2 — all routers
+ff02::2 — all routers - Devices sends RS to that Destination to discover routers.
 
 ff02::1:ffXX:XXXX — solicited-node (used by NDP)
 
@@ -110,7 +110,13 @@ NA – response of NS (MAC)
 
 RS – discovering router in network
 
-RA – response of RS: network prefix, SLAAC allowed or not, DHCPv6 needed or not, DNS (optional)
+RA – response of RS:
+
+network prefix
+SLAAC allowed or not
+DHCPv6 needed or not
+DNS (optional)
+Router lifetime: 1800 sec (means “use me as your gateway”)
 
 If SLAAC allowed:
 device dont need DHCPv6 to get GUA IPv6. device will craft address itself by adding routers provided prefix and its own randomized IID, DAD check it and assigned to itself.
