@@ -166,3 +166,20 @@ No RA → no IPv6 routing.
 
 DHCPv6 cannot give default gateway.
 
+## Device -> Website
+
+1. Laptop creates LLA → DAD
+2. RS → Router
+3. RA → Prefix, DNS, SLAAC, Gateway
+4. Laptop creates GUA → DAD
+5. NDP: Laptop learns router MAC
+6. DNS query (via router)
+7. DNS reply with IPv4+IPv6
+8. Happy Eyeballs → IPv6 chosen
+9. TCP SYN → router → website
+10. Website SYN/ACK → router → laptop (NDP if needed)
+11. TCP handshake complete
+12. TLS handshake
+13. Encrypted HTTPS traffic begins
+
+
